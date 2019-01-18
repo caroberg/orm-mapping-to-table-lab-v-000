@@ -3,12 +3,18 @@ class Student
   attr_reader :id
 
   def initialize(name, grade, id=nil)
-    @id = id
     @name = name
-    @album = album
+    @grade = grade
+    @id = id
   end
 
-  def self.create_table 
+  def self.create_table
+    sql = <<-SQL 
+      CREATE TABLE IF NOT EXISTS students (
+        id INTEGER PRIMARY KEY,
+        name TEXT,
+        grade INTEGER
+      )
   end
 
   # Remember, you can access your database connection anywhere in this class
